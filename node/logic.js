@@ -52,13 +52,13 @@ let val1=[
   ];
   
   val2 = [];
-  val1.forEach(function(each){
-    if(each.logic_type==1 || each.logic_type==3)
-      each.enable = true;
-    else if((each.id==9 || each.id==10) && each.logic_type==2)
-      each.enable = true;
+  val1.forEach(function(item){
+    if(item.logic_type==1 || item.logic_type==3)
+      item.enable = true;
+    else if((item.id==9 || item.id==10) && item.logic_type==2)
+      item.enable = true;
     else
-      each.enable = false;
-    val2.push(each);
+      item.enable = false;
+    val2.push(item);
   });
   console.log(val2);
