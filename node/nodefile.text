@@ -1,0 +1,16 @@
+1.why npm?
+*npm is the world's largest Software Library (Registry)
+*npm is also a software Package Manager and Installer
+
+2.why npm -g , save-dev?
+Installing a package globally allows you to use the code in the package as a set of tools on 
+your local computer.
+*Usually you install NPM modules globally if you want them included in your path to be ran from the command line.
+*Since it is installed locally you will have to run it from the node_modules folder.
+
+3.why yarn?
+*Yarn stands for Yet Another Resource Negotiator
+It provides similar functionalities as NPM.
+*It provides similar functionalities as NPM. It is an alternative to NPM when installing, uninstalling,
+and managing package dependencies from the NPM registry or GitHub repositories.
+
