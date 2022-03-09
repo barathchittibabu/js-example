@@ -50,15 +50,7 @@ let val1=[
       "name": "On-Hold"
     }
   ];
-  
-  val2 = [];
-  val1.forEach(function(item){
-    if(item.logic_type==1 || item.logic_type==3)
-      item.enable = true;
-    else if((item.id==9 || item.id==10) && item.logic_type==2)
-      item.enable = true;
-    else
-      item.enable = false;
-    val2.push(item);
-  });
-  console.log(val2);
+  selectedList=[9,10]
+
+  val3 = val1.map(item => { return {...item, enable:item.logic_type!=2 || selectedList.indexOf(item.id) !== -1}})
+  console.log(val3)
