@@ -27,12 +27,19 @@ function compareBy(propertyName) {
     };
   }
   let products = [
-      {name: 'iphone', price:900},
-      {name:'samsung', price:850},
-      {name:'xperia' , price:700}
+      {name:'c iphone', price:900},
+      {name:'a samsung', price:850},
+      {name:'b Sony xperia' , price:700}
   ]
   console.log('product sorted by name :');
   products.sort(compareBy('name'));
 
   console.table(products);
+  
+  console.log('product sorted by price :');
+  products.sort(compareBy('price'));
+
+  console.table(products);
+
+//   console.table(products);
 
