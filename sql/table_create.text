@@ -1,3 +1,5 @@
+       //****create a table only*****//
+             //-----start-----//
 ////////////    branch_student---table    ////////
 
 create table branch_student
@@ -42,3 +44,12 @@ select * from student;
 insert into branch(id,name) values(1,'jay');
 insert into branch(id,name) values(2,'sanjay');
 insert into branch(id,name) values(3,'rajesh');
+
+          ///------ends------///
+
+////----****---join the tables---****----////
+select branch_student.id,branch_student.branch_id,branch.name,branch_student.student_id,student.name 
+from branch_student 
+left join branch on branch_student.branch_id=branch.id
+left join student on branch_student.student_id=student.id
+
