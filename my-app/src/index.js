@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Counter from './Counter';
+import Login from './Login'; 
 
-function Header()
+function Layout()
 {
     return(
-        <h1>header</h1>  
+        // <h1>Hello World.....!</h1>,
+        // <Counter name1={'barath'}/>,
+        <Login/>
     )
 }
-function Barath()
-{
-    return(
-        <h1></h1>
-    )
-}
-ReactDOM.render(<Header/>,document.getElementById('root'));
+
+ReactDOM.render(<Layout/>,document.getElementById('root'));
