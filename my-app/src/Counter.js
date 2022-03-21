@@ -29,7 +29,7 @@ class Counter extends Component
         {
             
         return(
-            <div style={{color:"red", paddingLeft:"590px",paddingTop:"100px",fontSize:"40px",backgroundColor:'black'}}>
+            <div style={{color:"red", paddingLeft:"590px",paddingTop:"100px",fontSize:"40px",backgroundColor:'wheat'}}>
             <h1 style={{paddingLeft:"85px"}}>{this.state.count}</h1>
             <button style={{fontSize:"20px" , padding:"10px",borderRadius:"20px" }} onClick={this.handleDecreament}>Minus</button>
             <button style={{fontSize:"20px" , padding:"10px",borderRadius:"20px"}} onClick={this.handleIncreament}>Plus</button>

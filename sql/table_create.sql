@@ -1,12 +1,12 @@
-       //****create a table only*****//
-             //-----start-----//
-////////////    branch_student---table    ////////
+--       //****create a table only*****//
+  --           //-----start-----//
+--////////////    branch_student---table    ////////
 
 create table branch_student
 (
 id int,
 branch_id int,
-student_id varchar(30)
+student_id int
 );
 
 select * from branch_student;
@@ -17,7 +17,7 @@ INSERT INTO branch_student(id,branch_id,student_id) VALUES(3,2,1);
 INSERT INTO branch_student(id,branch_id,student_id) VALUES(4,1,3);
 
 
-/////////   branch  ///////
+--/////////   branch  ///////
 
 create table branch
 (
@@ -31,12 +31,12 @@ INSERT INTO branch(id,name) VALUES(1,"CSC");
 INSERT INTO branch(id,name) VALUES(2,"IT");
 
 
-////////// student /////////
+--////////// student /////////
 
 create table student
 (
 id int,
-name varchar(30)
+name varchar(29)
 );
 
 select * from student;
@@ -45,11 +45,11 @@ insert into branch(id,name) values(1,'jay');
 insert into branch(id,name) values(2,'sanjay');
 insert into branch(id,name) values(3,'rajesh');
 
-          ///------ends------///
+  --        ///------ends------///
 
-////----****---join the tables---****----////
-select branch_student.id,branch_student.branch_id,branch.name,branch_student.student_id,student.name 
-from branch_student 
+--////----****---join the tables---****----////
+select branch_student.id,branch_student.branch_id,branch.name branch_name,branch_student.branch_id,student.name studdnt_name
+from branch_student
 left join branch on branch_student.branch_id=branch.id
 left join student on branch_student.student_id=student.id
 

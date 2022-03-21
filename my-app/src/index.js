@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
-import Login from './Login'; 
+// import Counter from './Counter';
+// import Login from './Login'; 
+// import {One} from './practice';
+import App from './regForm';
+import 'bootstrap/dist/css/bootstrap.min.css' 
 
-function Layout()
-{
-    return(
-        // <h1>Hello World.....!</h1>,
-        // <Counter name1={'barath'}/>,
-        <Login/>
-    )
-}
 
-ReactDOM.render(<Layout/>,document.getElementById('root'));
+ReactDOM.render(<App/> ,document.getElementById('root'));
