@@ -1,30 +1,87 @@
-import React,{Component} from "react";
+import React from "react";
+import { Formik, useFormik } from "formik";
+import * as yup from 'yup';
 
-// const style = {
-//     padding:"30px",
-//     backgroundColor:"blue"
-// }
+const Sign = () =>{
 
-const Login = ()=>{
+    const formik = useFormik({
+        initialValues : {
+            email:'',
+            password:'',
+            confirmPassword:''
+        },
+        validationSchema:yup.object({
+            email:yup.string()
+            .email()
+            .required("Email is required"),
+            password:yup.string()
+            .required("Enter Your Password"),
+            confirmPassword:yup.string()
+            .oneOf([yup.ref('password'),null],"Please Enter The Same Password")
+            .required("Confirm Your Password")
+        }),
+        onSubmit:(userInputData)=>{
+            console.log(userInputData);
+        }
+    })
+
     return(
-        <form action="" style={{borderRadius:"20px", padding:"60px",backgroundColor:"blue" , fontSize:"40px",alignItems:"center",paddingTop:"10%",paddingBottom:"20%"}}>
-            <div>
-            <label htmlFor="email" style={{ paddingLeft:"42%"}}>email</label><br/>
-            <div style={{paddingLeft:"32%"}}>
-            <input type="text" name="email" id="email" style={{ width:"40%",fontSize:"20px",borderRadius:"14px"}}/>
+        <div style={{maxWidth:380, width:"90%" , margin:"auto" }}>
+        <div className="container mt-5">
+                <form>
+                    {/* email */}
+                    <div className="form-group">
+                        <label>email:</label>
+                        <input 
+                        className="form-control"
+                        type="text"
+                        name="email"
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                        />
+                        {formik.errors.email?
+                        <div style={{color:"red"}}>{formik.errors.email}</div>:
+                        null
+                        }
+                    </div>
+
+                    <div className="form-group">
+                        <label>password:</label>
+                        <input
+                        className="form-control"
+                        type="password"
+                        name="password"
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                        />
+                        {formik.errors.password?
+                        <div style={{color:"red"}}>{formik.errors.password}</div>:
+                        null
+                        }
+                    </div>
+
+                    <div className="form-group">
+                        <label>confirmPassword:</label>
+                        <input 
+                        className="form-control"
+                        type="password"
+                        name="confirmPassword"
+                        onChange={formik.handleChange}
+                        value={formik.values.confirmPassword}
+                        />
+                        {formik.errors.confirmPassword?
+                        <div style={{color:"red"}}>{formik.errors.confirmPassword}</div>:
+                        null
+                        }
+                    </div> 
+                    <div style={{marginLeft:130 ,padding:10}}>
+                    <button className="btn btn-secondary">Log in</button>
+                    </div>
+                </form>
             </div>
-            </div>
-            <div>
-            <label htmlFor="password" style={{ paddingLeft:"40%"}}>password</label><br/>
-            <div style={{paddingLeft:"32%"}}>
-            <input type="password" name="password" id="password" style={{ width:"40%",fontSize:"20px",borderRadius:"13px"}}/>
-            </div>
-            </div>
-            <div style={{paddingLeft:"40.6%"}}>
-            <button type="submit" style={{marginTop: "8px", display: "inline-block",fontSize:"20px",color: "white",background: "red",borderRadius: "0.5rem",cursor: "pointer",padding: "10px 30px" }}> Submit </button>
-            </div>
-        </form>
+        </div>
     )
 }
 
-export default Login;
+
+export default Sign;

@@ -28,8 +28,7 @@ app.post("/student", (req, res) => {
   
     student_list.branchStudent.map((branchstudent)=>{ 
         const branch = student_list.branch.find((branch) => {return branchstudent.branchId == branch.id}) 
-        const student = student_list.student.find((student)=>
-         {return branchstudent.studentId == student.id})
+        const student = student_list.student.find((student)=> {return branchstudent.studentId == student.id})
         branchStudentMap.push({
             id: branchstudent.id,
             branchId: branchstudent.branchId,

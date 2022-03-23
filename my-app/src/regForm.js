@@ -51,8 +51,8 @@ const App = () =>{
     })
     return(
             <div className="container mt-3" >
-                <div className ="jumbotron">
-                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
+                <div className ="register-form">
+                <form autoComplete="off" onSubmit={formik.handleSubmit}>
                     {/* //name... */}
                     <div className="form-group">
                     <label>Name:</label>
@@ -73,7 +73,7 @@ const App = () =>{
 
                     {/* select */}
                     <div className="form-group">
-                        <label>Select city:</label>
+                       <label>Select city:</label>
                         <select
                         className="form-control" id= "sel1"
                         name = "list" 
@@ -140,7 +140,7 @@ const App = () =>{
                     }
                     </div>
                     <button className="btn btn-primary">Submit</button>
-                 </form>
+                </form>
             </div>
          </div>
 
