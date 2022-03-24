@@ -20,7 +20,8 @@ const App = () =>{
 
     const formik = useFormik({
         initialValues : {
-            name:'',
+            FirstName:'',
+            LastName:'',
             email:'',
             list:'',
             password:'',
@@ -28,12 +29,16 @@ const App = () =>{
 
         },
         validationSchema:yup.object({
-            name:yup.string()
+            FirstName:yup.string()
             .strict()
             .uppercase()
-            .required("Name is required")
+            .required("Enter Your First Name")
             .min(5,"minum 5 characters required")
             .max(15,"maximum 15 characters only"),
+            LastName:yup.string()
+            .strict()
+            .uppercase()
+            .required("Enter Your Last Name"),
             email:yup.string()
             .email()
             .required("Email is required"),
@@ -53,23 +58,39 @@ const App = () =>{
             <div className="container mt-3" >
                 <div className ="register-form">
                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
-                    {/* //name... */}
+                    {/* //first-name... */}
                     <div className="form-group">
-                    <label>Name:</label>
+                    <label>First Name:</label>
                     <input 
                     className="form-control"
                     type = "text" 
-                    name = "name" 
+                    name = "FirstName" 
                     onChange={formik.handleChange} 
-                    value={formik.values.name} 
+                    value={formik.values.FirstName} 
                     />
             
-                    {formik.errors.name?
-                        <div style={{color:"red"}}>{formik.errors.name}</div>:
+                    {formik.errors.FirstName?
+                        <div style={{color:"red"}}>{formik.errors.FirstName}</div>:
                         null
                     }
                     </div>
                     
+                    {/* Last-name */}
+                    <div className="form-group">
+                        <label>Last Name:</label>
+                        <input
+                        className="form-control"
+                        type="text"
+                        name="LastName"
+                        onChange={formik.handleChange}
+                        value={formik.values.LastName}
+                        />
+
+                        {formik.errors.LastName?
+                            <div style={{color:"red"}}>{formik.errors.LastName}</div>:
+                            null    
+                        }
+                    </div>
 
                     {/* select */}
                     <div className="form-group">
