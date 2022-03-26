@@ -1,6 +1,8 @@
 import React from "react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 // const validate = values => {
@@ -18,12 +20,18 @@ import * as yup from 'yup';
 
 const App = () =>{ 
 
+    const city = ['chennai', 'Bengaluru', 'mumbai',
+'chengalpattu', 'pondycherry', 'Kanchipuram']
+    const city2 = ['chennai', 'Bengaluru', 'mumbai',
+'chengalpattu', 'pondycherry', 'Kanchipuram']
+
     const formik = useFormik({
         initialValues : {
             FirstName:'',
             LastName:'',
             email:'',
             list:'',
+            list2:'',
             password:'',
             confirmPassword:'',
 
@@ -43,7 +51,7 @@ const App = () =>{
             .email()
             .required("Email is required"),
             list: yup.string()
-            .required("Please select"),
+            .required("Please select your city"),
             password: yup.string()
             .required("Enter your new password"),
             confirmPassword: yup.string()
@@ -59,7 +67,7 @@ const App = () =>{
                 <div className ="register-form">
                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
                     {/* //first-name... */}
-                    <div className="form-group">
+                    <div >
                     <label>First Name:</label>
                     <input 
                     className="form-control"
@@ -76,7 +84,7 @@ const App = () =>{
                     </div>
                     
                     {/* Last-name */}
-                    <div className="form-group">
+                    <div >
                         <label>Last Name:</label>
                         <input
                         className="form-control"
@@ -93,27 +101,28 @@ const App = () =>{
                     </div>
 
                     {/* select */}
-                    <div className="form-group">
-                       <label>Select city:</label>
-                        <select
-                        className="form-control" id= "sel1"
-                        name = "list" 
-                        onChange={formik.handleChange} 
-                        value={formik.values.list}
-                         >
-                            <option value="">--select--</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Bengalur">Bengalur</option>
-                            <option value="Hydrabad">Hydrabad</option>
-                        </select>
-                        {formik.errors.list?
+                    <div >
+                    <label>Select your City:</label>
+                    <Autocomplete
+                    className="form-control"
+                    type="text"
+                    name="list"
+                    onChange={formik.values.list}
+                    options={city}                              
+                        renderInput={(params) =>
+                        <TextField {...params} label="Combo box" />}
+                    />
+
+                    {
+                        formik.errors.list?
                         <div style={{color:"red"}}>{formik.errors.list}</div>:
                         null
                     }
                     </div>
 
+
                     {/* //Email... */}
-                    <div className="form-group">
+                    <div >
                     <label>email:</label>
                     <input 
                     className="form-control"
@@ -130,7 +139,7 @@ const App = () =>{
                     </div>
 
 
-                    <div className="form-grup">
+                    <div >
                     <label>password:</label>
                     <input 
                     className="form-control"
@@ -145,7 +154,7 @@ const App = () =>{
                     }
                     </div>
 
-                    <div className="form-group">
+                    <div >
                     <label>confirmPassword:</label>
                     <input 
                     className="form-control"
