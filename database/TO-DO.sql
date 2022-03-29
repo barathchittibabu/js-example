@@ -23,18 +23,21 @@ CREATE Table todo(
 CREATE Table category(
   id int NOT NULL,
   name varchar NOT NULL,
+
   PRIMARY KEY(id)
 )
  
 CREATE Table priority(
   id int NOT NULL,
   level varchar NOT NULL,
+
   PRIMARY KEY(id)
 )
 
 CREATE Table status(
   id int NOT NULL,
   name varchar NOT NULL,
+  
   PRIMARY KEY(id)
 )
 
@@ -71,8 +74,6 @@ VALUES
 
  
  
-
-
  INSERT INTO todo(id,person_id,priority_id,category_id,status_id,description,due_date)
 VALUES
 (4,1,null,null,1,' Need to achieve all targets','2021-09-30')
@@ -86,3 +87,5 @@ FULL OUTER JOIN person ON person.id = todo.person_id
 INNER JOIN category ON category.id = todo.category_id
 INNER JOIN priority ON priority.id = todo.priority_id
 INNER JOIN status ON status.id = todo.status_id
+
+  

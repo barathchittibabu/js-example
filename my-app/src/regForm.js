@@ -22,8 +22,7 @@ const App = () =>{
 
     const city = ['chennai', 'Bengaluru', 'mumbai',
 'chengalpattu', 'pondycherry', 'Kanchipuram']
-    const city2 = ['chennai', 'Bengaluru', 'mumbai',
-'chengalpattu', 'pondycherry', 'Kanchipuram']
+
 
     const formik = useFormik({
         initialValues : {
@@ -31,7 +30,6 @@ const App = () =>{
             LastName:'',
             email:'',
             list:'',
-            list2:'',
             password:'',
             confirmPassword:'',
 
@@ -50,7 +48,7 @@ const App = () =>{
             email:yup.string()
             .email()
             .required("Email is required"),
-            list: yup.string()
+            list:yup.string()
             .required("Please select your city"),
             password: yup.string()
             .required("Enter your new password"),
@@ -63,9 +61,13 @@ const App = () =>{
         }
     })
     return(
+
+        
             <div className="container mt-3" >
                 <div className ="register-form">
                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
+
+                    
                     {/* //first-name... */}
                     <div >
                     <label>First Name:</label>
@@ -113,8 +115,7 @@ const App = () =>{
                         <TextField {...params} label="Combo box" />}
                     />
 
-                    {
-                        formik.errors.list?
+                    {formik.errors.list?
                         <div style={{color:"red"}}>{formik.errors.list}</div>:
                         null
                     }

@@ -1,7 +1,6 @@
 const express = require("express");
 const { request, gql } = require("graphql-request");
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +33,6 @@ app.get("/city", (req, res) => {
   }).then((data) => res.send(data));
 });
 
-app.listen(port, () => {
-  console.log(`Running at port ${port}`);
+app.listen(3000, () => {
+  console.log(`Running at 3000 ${3000}`);
 });
-

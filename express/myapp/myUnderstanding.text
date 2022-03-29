@@ -1,0 +1,22 @@
+1. Querry Parem?
+ *   Request parameters are used to send additional information to the server. A URL contains these parameters.
+     There are two types of parameters: Query Parameter: These are appended to the end of the request URL, 
+     Query parameters are appended to the end of the request URL, following '?' 
+
+2. Post - Post Body?
+ *  in POST requests, values are sent in the "body" of the request. With web-forms they are most likely sent
+    with a media type of application/x-www-form-urlencoded or multipart/form-data 
+
+3. Request body?
+ *  The req. body property contains key-value pairs of data submitted in the request body. By default, 
+    it is undefined and is populated when you use a middleware called body-parsing such as express.
+    urlencoded() or express. json(). 
+
+4. Response body?
+ *  I would like to add a body property to Express.js' response object, 
+    which will be called every time the send method is called,
+    I do it by adding the following code as a middleware
+
+5. Header?
+ *  The header tells the server details about the request such as what type of data the client, user,
+    or request wants in the response. Type can be html , text , JSON , cookies or others.

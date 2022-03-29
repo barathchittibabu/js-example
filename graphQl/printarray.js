@@ -1,7 +1,6 @@
 const express = require("express");
 const { request, gql } = require("graphql-request");
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,21 +25,21 @@ const query = gql`
 const header = {
   "Content-Type": "application/json",
 };
-const endpoint = "https://dcore.fr8.in/v1/graphql";
+const graphurl = "https://dcore.fr8.in/v1/graphql";
 
 app.get("/city", (req, res) => {
-  const variables = {
+  const serachcity = {
     search: `%${req.query.name}%`,
   };
 
   request({
-    url: endpoint,
+    url: graphurl,
     document: query,
     header: header,
-    variables: variables,
+    variables: serachcity,
   }).then((data) => res.send(data));
 });
 
-app.listen(port, () => {
-  console.log(`Running at port ${port}`);
+app.listen(3000, () => {
+  console.log(`Running at port ${3000}`);
 });
