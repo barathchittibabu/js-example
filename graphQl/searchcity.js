@@ -15,24 +15,24 @@ const query = gql`
   }
 `;
 
-const header = {
+const title = {
   "Content-Type": "application/json",
 };
-const endpoint = "https://dcore.fr8.in/v1/graphql";
+const graphurl = "https://dcore.fr8.in/v1/graphql";
 
 app.get("/city", (req, res) => {
-  const variables = {
+  const serachcity = {
     name: `%${req.query.name}%`,
   };
 
   request({
-    url: endpoint,
+    url: graphurl,
     document: query,
-    header: header,
-    variables: variables,
+    header: title,
+    variables: serachcity,
   }).then((data) => res.send(data));
 });
 
 app.listen(3000, () => {
-  console.log(`Running at 3000 ${3000}`);
+  console.log(`running port ${3000}`);
 });

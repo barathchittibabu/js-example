@@ -1,9 +1,9 @@
 const express = require("express");
 const { request, gql } = require("graphql-request");
-const app = express();
+const printarray = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+printarray.use(express.json());
+printarray.use(express.urlencoded({ extended: true }));
 
 const query = gql`
   query citySearch($search: String!) {
@@ -22,12 +22,12 @@ const query = gql`
   }
 `;
 
-const header = {
+const title = {
   "Content-Type": "application/json",
 };
 const graphurl = "https://dcore.fr8.in/v1/graphql";
 
-app.get("/city", (req, res) => {
+printarray.get("/city", (req, res) => {
   const serachcity = {
     search: `%${req.query.name}%`,
   };
@@ -35,11 +35,11 @@ app.get("/city", (req, res) => {
   request({
     url: graphurl,
     document: query,
-    header: header,
+    header: title,
     variables: serachcity,
   }).then((data) => res.send(data));
 });
 
-app.listen(3000, () => {
+printarray.listen(3000, () => {
   console.log(`Running at port ${3000}`);
 });
