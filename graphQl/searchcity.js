@@ -6,8 +6,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const query = gql`
-  query citySearch($name: String!) {
-    city(where: { name: { _ilike: $name } }) {
+  query citySearch{
+    city{
       id
       name
       is_connected_city

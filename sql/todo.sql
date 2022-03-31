@@ -31,12 +31,13 @@ INSERT INTO status(id,status) VALUES(1,"in-progress");
 
 create table todo(
   id int not null,
+  name_id int not null,
   task varchar not null,
   category_id int not null,
   status_id int not null,
-  due_date date not null
+  due_date date not null,
 
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
 
   FOREIGN key (name_id) REFERENCES name(id),
   FOREIGN key (category_id) REFERENCES category(id),
@@ -71,3 +72,31 @@ from name,todo
 where todo.name_id=name.id
 group by name.name
 order by user_task_count ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select category.category,count(todo.category_id)as
+tsak_counting
+from category,todo
+group by category.category

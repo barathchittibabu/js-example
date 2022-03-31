@@ -17,10 +17,10 @@ export const  One = () =>
     return (
         <div className="cont-1" >
         <div className="container" >
-        <h1>{count}</h1>
-        <button className="btn btn-secondary p-2" onClick={handleIncreament}> plus count </button>
-        <button className="btn btn-primary p-2" onClick={handleDecreament}> Minus count </button>
-        <button className="btn btn-info p-2" onClick={Reset}> Reset </button>
+        <h1 >{count}</h1>
+        <button className="btn btn-secondary p-2 decbtn" onClick={handleDecreament}> Minus count </button>
+        <button className="btn btn-info p-2 resetbtn" onClick={Reset}> Reset </button>
+        <button className="btn btn-secondary p-2 incbtn"onClick={handleIncreament}> plus count </button>
         </div>
         </div>
     )

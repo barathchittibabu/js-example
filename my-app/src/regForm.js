@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import './regform.css';
 
 
 // const validate = values => {
@@ -69,7 +70,7 @@ const App = () =>{
 
                     
                     {/* //first-name... */}
-                    <div >
+                    <div className="form">
                     <label>First Name:</label>
                     <input 
                     className="form-control"
@@ -86,7 +87,7 @@ const App = () =>{
                     </div>
                     
                     {/* Last-name */}
-                    <div >
+                    <div className="form">
                         <label>Last Name:</label>
                         <input
                         className="form-control"
@@ -102,8 +103,57 @@ const App = () =>{
                         }
                     </div>
 
-                    {/* select */}
-                    <div >
+
+                    {/* //Email... */}
+                    <div className="form">
+                    <label>email:</label>
+                    <input 
+                    className="form-control"
+                    type = "text" 
+                    name="email"
+                    onChange={formik.handleChange} 
+                    value={formik.values.email} 
+                    />
+                    
+                    {formik.errors.email?
+                        <div style={{color:"red"}}>{formik.errors.email}</div>:
+                        null
+                    }
+                    </div>
+
+
+                    <div className="form">
+                    <label>password:</label>
+                    <input 
+                    className="form-control"
+                    type = "Password" 
+                    name="password"
+                    onChange={formik.handleChange} 
+                    value={formik.values.password} 
+                    />
+                    {formik.errors.password?
+                        <div style={{color:"red"}}>{formik.errors.password}</div>:
+                        null
+                    }
+                    </div>
+
+                    <div className="form" >
+                    <label>confirmPassword:</label>
+                    <input 
+                    className="form-control"
+                    type = "Password" 
+                    name="confirmPassword"
+                    onChange={formik.handleChange} 
+                    value={formik.values.confirmPassword} 
+                    />
+                    
+                    {formik.errors.confirmPassword?
+                        <div style={{color:"red"}}>{formik.errors.confirmPassword}</div>:
+                        null
+                    }
+                    </div >
+
+                    <div className="form">
                     <label>Select your City:</label>
                     <Autocomplete
                     className="form-control"
@@ -121,56 +171,10 @@ const App = () =>{
                     }
                     </div>
 
-
-                    {/* //Email... */}
-                    <div >
-                    <label>email:</label>
-                    <input 
-                    className="form-control"
-                    type = "text" 
-                    name="email"
-                    onChange={formik.handleChange} 
-                    value={formik.values.email} 
-                    />
                     
-                    {formik.errors.email?
-                        <div style={{color:"red"}}>{formik.errors.email}</div>:
-                        null
-                    }
-                    </div>
-
-
-                    <div >
-                    <label>password:</label>
-                    <input 
-                    className="form-control"
-                    type = "Password" 
-                    name="password"
-                    onChange={formik.handleChange} 
-                    value={formik.values.password} 
-                    />
-                    {formik.errors.password?
-                        <div style={{color:"red"}}>{formik.errors.password}</div>:
-                        null
-                    }
-                    </div>
-
-                    <div >
-                    <label>confirmPassword:</label>
-                    <input 
-                    className="form-control"
-                    type = "Password" 
-                    name="confirmPassword"
-                    onChange={formik.handleChange} 
-                    value={formik.values.confirmPassword} 
-                    />
-                    
-                    {formik.errors.confirmPassword?
-                        <div style={{color:"red"}}>{formik.errors.confirmPassword}</div>:
-                        null
-                    }
-                    </div>
+                    <div className="btncenter">
                     <button className="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
          </div>

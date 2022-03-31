@@ -1,0 +1,32 @@
+body{
+    padding-top: 100px;
+    background-size: 1200px;
+    background: url(./moon-2048727.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 20%;
+    color: white;
+}
+
+.container{
+    padding-top:40px ;
+    padding: 100px;
+    background-color: rgba(48, 44, 44, 0.493);
+    border-radius: 10px;
+}
+.form{
+    padding-top: 40px;
+    padding-inline: 50px;
+}
+.btncenter{
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 30px;
+}
+.btn{
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: grey;
+}

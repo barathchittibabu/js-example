@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, useFormik } from "formik";
 import * as yup from 'yup';
+import './login.css';
 
 const Sign = () =>{
 
@@ -27,10 +28,10 @@ const Sign = () =>{
 
     return(
         <div style={{maxWidth:380, width:"90%" , margin:"auto" }}>
-        <div className="container mt-5">
+        <div className="container mt-5 total">
                 <form>
                     {/* email */}
-                    <div className="form-group">
+                    <div className="form">
                         <label>email:</label>
                         <input 
                         className="form-control"
@@ -45,7 +46,7 @@ const Sign = () =>{
                         }
                     </div>
 
-                    <div className="form-group">
+                    <div className="form">
                         <label>password:</label>
                         <input
                         className="form-control"
@@ -60,7 +61,7 @@ const Sign = () =>{
                         }
                     </div>
 
-                    <div className="form-group">
+                    <div className="form">
                         <label>confirmPassword:</label>
                         <input 
                         className="form-control"

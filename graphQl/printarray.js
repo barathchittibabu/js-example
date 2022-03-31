@@ -6,15 +6,9 @@ printarray.use(express.json());
 printarray.use(express.urlencoded({ extended: true }));
 
 const query = gql`
-  query citySearch($search: String!) {
-    city(
-      where: {
-        _and: [
-          { name: { _ilike: $search } }
-          { is_connected_city: { _eq: true } }
-        ]
-      }
-    ) {
+  query city($search: String!) {
+    city(where: {_and:[{name:{_ilike:$search}},{is_connected_city: 
+    {_eq: true } }]}){
       id
       name
       is_connected_city
