@@ -6,14 +6,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const query = gql`
-  query citySearch{
-    city{
+  query citySearch($name: String!){
+    city(where: { name: { _ilike: $name } })
+    {
       id
       name
       is_connected_city
     }
   }
-`;
+` ;
 
 const title = {
   "Content-Type": "application/json",
@@ -30,7 +31,7 @@ app.get("/city", (req, res) => {
     document: query,
     header: title,
     variables: serachcity,
-  }).then((data) => res.send(data));
+  }).then((data) => res.send(data.city));
 });
 
 app.listen(3000, () => {

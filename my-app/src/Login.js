@@ -74,9 +74,9 @@ const Sign = () =>{
                         <div style={{color:"red"}}>{formik.errors.confirmPassword}</div>:
                         null
                         }
-                    </div> 
-                    <div style={{marginLeft:130 ,padding:10}}>
-                    <button className="btn btn-secondary">Log in</button>
+                    </div>
+                    <div className="button-btn">
+                    <button className="btn btn-info">log in</button>
                     </div>
                 </form>
             </div>

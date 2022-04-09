@@ -1,8 +1,9 @@
 import React from "react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+// import TextField from '@material-ui/core/TextField';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
+import SearchCityFunc from './reagistrationgraphql';
 import './regform.css';
 
 
@@ -21,8 +22,8 @@ import './regform.css';
 
 const App = () =>{ 
 
-    const city = ['chennai', 'Bengaluru', 'mumbai',
-'chengalpattu', 'pondycherry', 'Kanchipuram']
+//     const city = ['chennai', 'Bengaluru', 'mumbai',
+// 'chengalpattu', 'pondycherry', 'Kanchipuram']
 
 
     const formik = useFormik({
@@ -30,7 +31,7 @@ const App = () =>{
             FirstName:'',
             LastName:'',
             email:'',
-            list:'',
+            // list:'',
             password:'',
             confirmPassword:'',
 
@@ -49,8 +50,8 @@ const App = () =>{
             email:yup.string()
             .email()
             .required("Email is required"),
-            list:yup.string()
-            .required("Please select your city"),
+            // list:yup.string()
+            // .required("Please select your city"),
             password: yup.string()
             .required("Enter your new password"),
             confirmPassword: yup.string()
@@ -153,7 +154,7 @@ const App = () =>{
                     }
                     </div >
 
-                    <div className="form">
+                    {/* <div className="form">
                     <label>Select your City:</label>
                     <Autocomplete
                     className="form-control"
@@ -169,7 +170,8 @@ const App = () =>{
                         <div style={{color:"red"}}>{formik.errors.list}</div>:
                         null
                     }
-                    </div>
+                    </div> */}
+                    <SearchCityFunc/>
 
                     
                     <div className="btncenter">
