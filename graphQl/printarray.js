@@ -26,11 +26,16 @@ app.get("/city", (req, res) => {
     search: `%${req.query.name}%`,
   };
 
+  const stringvalue=JSON.stringify({
+    Document:query,
+    variables:serachcity});
+
   request({
     url: graphurl,
     document: query,
     header: title,
     variables: serachcity,
+    body:stringvalue
   }).then((data) => res.send(data.city));
 });
 

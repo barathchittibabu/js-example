@@ -10,7 +10,7 @@ import App from './regForm';
 // import {State_con} from './hook';
 // import {EgState} from './hook_component/useState';
 // import {EgEffect} from './hook_component/useEffect';
-// import App from './App'
+// import App from './App';
 // import {Egcontext_2} from './hook_component/useContext';
 // import {Egcontext_3} from './hook_component/useContext';
 
@@ -61,6 +61,4 @@ import App from './regForm';
 
 
 
-ReactDOM.render(
-<App />,
-document.getElementById('root'));
+ReactDOM.render(<App/>,document.getElementById('root'));
